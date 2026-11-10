@@ -1,0 +1,73 @@
+.app-shell { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 250px; flex-shrink: 0; background: var(--surface); border-right: 1px solid var(--line);
+  display: flex; flex-direction: column; padding: 1.25rem 1rem; gap: 1.5rem;
+  position: sticky; top: 0; height: 100vh; overflow-y: auto;
+}
+
+.brand { display: flex; align-items: center; gap: 0.6rem; padding: 0 0.25rem; }
+.brand-mark {
+  width: 34px; height: 34px; border-radius: 8px; background: var(--brand); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 600;
+}
+.brand-name { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; }
+.brand-sub { font-size: 0.75rem; color: var(--ink-soft); }
+
+.nav-group { display: flex; flex-direction: column; gap: 0.15rem; }
+.nav-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); padding: 0.4rem 0.6rem 0.2rem; }
+.nav-link {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
+  padding: 0.5rem 0.6rem; border-radius: 8px; color: var(--ink); font-weight: 500; font-size: 0.92rem;
+}
+.nav-link:hover { background: var(--paper); text-decoration: none; }
+.nav-link.active { background: var(--brand-soft); color: var(--brand); }
+.nav-badge { background: var(--accent); color: #fff; border-radius: 999px; font-size: 0.7rem; padding: 0.05rem 0.45rem; }
+
+.sidebar-footer { margin-top: auto; display: flex; flex-direction: column; gap: 0.6rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.user-chip { display: flex; align-items: center; gap: 0.6rem; cursor: pointer; padding: 0.3rem; border-radius: 8px; }
+.user-chip:hover { background: var(--paper); }
+.avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.user-name { font-weight: 600; font-size: 0.9rem; }
+
+.main-area { flex: 1; padding: 1.75rem 2.25rem; max-width: 1200px; }
+
+@media (max-width: 800px) {
+  .app-shell { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: relative; flex-direction: row; flex-wrap: wrap; }
+  .main-area { padding: 1.25rem; }
+}
+
+.page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap; }
+.page-title { font-size: 1.6rem; }
+.page-sub { color: var(--ink-soft); margin-top: 0.2rem; }
+
+.stat-card { display: flex; flex-direction: column; gap: 0.3rem; }
+.stat-value { font-family: var(--font-display); font-size: 2rem; font-weight: 600; }
+.stat-label { color: var(--ink-soft); font-size: 0.85rem; }
+
+.filter-bar { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.25rem; align-items: center; }
+.filter-bar select, .filter-bar input { width: auto; min-width: 150px; }
+
+.wizard-steps { display: flex; gap: 0.4rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.wizard-step {
+  padding: 0.35rem 0.8rem; border-radius: 999px; font-size: 0.82rem; font-weight: 600;
+  background: var(--paper); color: var(--ink-soft); border: 1px solid var(--line);
+}
+.wizard-step.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+.wizard-step.done { background: var(--ok-soft); color: var(--ok); border-color: transparent; }
+
+.hierarchy-chain { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.hierarchy-node {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 0.75rem 1.5rem; box-shadow: var(--shadow); font-weight: 600; min-width: 220px; text-align: center;
+}
+.hierarchy-arrow { color: var(--line); font-size: 1.3rem; line-height: 1; padding: 0.15rem 0; }
+
+.split-auth { display: flex; min-height: 100vh; }
+.split-auth-panel { flex: 1; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+.split-auth-brand {
+  flex: 1; background: var(--brand); color: #fff; display: flex; flex-direction: column;
+  justify-content: center; padding: 4rem; gap: 1rem;
+}
+@media (max-width: 900px) { .split-auth-brand { display: none; } }
