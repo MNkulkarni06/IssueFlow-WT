@@ -92,8 +92,15 @@ export default function AppLayout() {
               <div className="user-email small muted">{user.email}</div>
             </div>
           </div>
-          <button className="btn-ghost btn-sm" onClick={() => { logout(); navigate('/login'); }}>Log out</button>
-        </div>
+<button
+  className="btn-ghost btn-sm"
+  onClick={() => {
+    logout();
+    window.location.replace('/login');
+  }}
+>
+  Log out
+</button>        </div>
       </aside>
 
       <main className="main-area">
