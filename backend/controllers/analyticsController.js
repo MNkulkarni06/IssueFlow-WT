@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const { Complaint } = require('../models');
 
 async function organizationOverview(req, res, next) {
@@ -38,7 +39,7 @@ async function organizationOverview(req, res, next) {
 
 async function complaintsBreakdown(req, res, next) {
   try {
-    const organizationId = req.organizationId;
+    const organizationId = new mongoose.Types.ObjectId(req.organizationId);
     const [byCategory, byDepartment, byLevel, byPriority] = await Promise.all([
       Complaint.aggregate([
         { $match: { organizationId } },
@@ -75,7 +76,7 @@ async function complaintsBreakdown(req, res, next) {
 
 async function escalationsBreakdown(req, res, next) {
   try {
-    const organizationId = req.organizationId;
+    const organizationId = new mongoose.Types.ObjectId(req.organizationId);
     const totalEscalated = await Complaint.countDocuments({ organizationId, escalationCount: { $gt: 0 } });
     const maxEscalationReached = await Complaint.countDocuments({ organizationId, maxEscalationReached: true });
     const avgEscalations = await Complaint.aggregate([
